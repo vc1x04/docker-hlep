@@ -1,0 +1,21 @@
+name: Download vaultwarden Image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull vaultwarden Image
+        run: docker pull vaultwarden/server:latest
+
+      - name: Save to File
+        run: docker save -o vaultwarden-latest.tar vaultwarden/server:latest
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: vaultwarden-image
+          path: vaultwarden-latest.tar
+          retention-days: 5

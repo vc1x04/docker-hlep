@@ -1,0 +1,21 @@
+name: Download Caddy Image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull Caddy Image
+        run: docker pull caddy:latest
+
+      - name: Save to File
+        run: docker save -o caddy-latest.tar caddy:latest
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: caddy-image
+          path: caddy-latest.tar
+          retention-days: 5

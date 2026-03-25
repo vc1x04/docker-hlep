@@ -1,0 +1,21 @@
+name: Download freshrss Image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull freshrss Image
+        run: docker pull freshrss/freshrss:latest
+
+      - name: Save to File
+        run: docker save -o freshrss-latest.tar freshrss/freshrss:latest
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: freshrss-image
+          path: freshrss-latest.tar
+          retention-days: 5
