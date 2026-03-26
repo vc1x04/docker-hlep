@@ -5,10 +5,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Pull freshrss Image
-        run: docker pull --pull always freshrss/freshrss:latest
+        run: docker pull freshrss/freshrss:latest
 
       - name: Save to File
         run: docker save -o freshrss-latest.tar freshrss/freshrss:latest
