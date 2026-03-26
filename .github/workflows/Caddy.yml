@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull Caddy Image
-        run: docker pull caddy:latest
+        run: docker pull --pull always caddy:latest
 
       - name: Save to File
         run: docker save -o caddy-latest.tar caddy:latest
