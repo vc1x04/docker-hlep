@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull vaultwarden Image
-        run: docker pull vaultwarden/server:latest
+        run: docker pull --pull always vaultwarden/server:latest
 
       - name: Save to File
         run: docker save -o vaultwarden-latest.tar vaultwarden/server:latest
