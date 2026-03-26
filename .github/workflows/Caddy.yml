@@ -5,10 +5,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Pull Caddy Image
-        run: docker pull --pull always caddy:latest
+        run: docker pull caddy:latest
 
       - name: Save to File
         run: docker save -o caddy-latest.tar caddy:latest
