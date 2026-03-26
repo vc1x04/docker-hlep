@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull freshrss Image
-        run: docker pull freshrss/freshrss:latest
+        run: docker pull --pull always freshrss/freshrss:latest
 
       - name: Save to File
         run: docker save -o freshrss-latest.tar freshrss/freshrss:latest
