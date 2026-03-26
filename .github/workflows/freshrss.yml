@@ -18,4 +18,4 @@ jobs:
         with:
           name: freshrss-image
           path: freshrss-latest.tar
-          retention-days: 5
+          retention-days: 1
