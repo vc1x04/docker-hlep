@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull AdGuard Home Image
-        run: docker pull adguard/adguardhome:latest
+        run: docker pull --pull always adguard/adguardhome:latest
 
       - name: Save to File
         run: docker save -o adguardhome-latest.tar adguard/adguardhome:latest
