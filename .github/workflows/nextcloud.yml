@@ -5,10 +5,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Pull nextcloud Image
-        run: docker pull --pull always nextcloud
+        run: docker pull nextcloud
 
       - name: Save to File
         run: docker save -o nextcloud-latest.tar nextcloud:latest
