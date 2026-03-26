@@ -1,0 +1,21 @@
+name: Download memos Image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull memos Image
+        run: docker pull neosmemo/memos:stable
+
+      - name: Save to File
+        run: docker save -o memos-latest.tar neosmemo/memos:stable
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: memos-image
+          path: memos-stable.tar
+          retention-days: 1
